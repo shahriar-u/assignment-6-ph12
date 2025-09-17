@@ -10,7 +10,7 @@ async function loadCategory() {
       const category = document.createElement('li');
 
       category.innerHTML = `
-            <span id="${element.id}" class="category-item block hover:text-white hover:rounded-lg cursor-pointer p-2 w-[300px] hover:bg-[#15803D]">
+            <span id="${element.id}" class="category-item block hover:text-white hover:rounded-lg cursor-pointer p-2 w-[300px] lg:w-full hover:bg-[#15803D]">
             ${element.category_name}
             </span>
           `;
