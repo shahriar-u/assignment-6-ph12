@@ -29,6 +29,35 @@ async function loadCategory() {
         loadCardsByCategory(e.target.id)
       });
     });
+    // category wise cards 
+    async function loadCardsByCategory(catId) {
+      try {
+        const response = await fetch(`https://openapi.programming-hero.com/api/category/${catId}`);
+        const data = await response.json();
+        console.log(data);
+        const cardContainer = document.getElementById('card-container');
+        cardContainer.innerHTML = "";
+        data.plants.forEach(element => {
+          const card = document.createElement('div')
+          card.innerHTML = `
+          <div class=" bg-white p-3 rounded-xl">
+            <img class="h-[150px] w-full" src="${element.image}" alt="">
+                        <h2 class="font-bold">${element.name}</h2>
+                        <p class="text-xs text-[#425158]">${element.description}</p>
+                        <div class="flex justify-between items-center my-2">
+                            <h2 class="bg-[#DCFCE7] text-[#15803D] px-3 py-1 rounded-3xl">${element.category}</h2>
+                            <p><span>৳</span>${element.price}</p>
+                        </div>
+                        <button class="btn btn-active bg-[#15803D] text-white w-full rounded-3xl">Add to Cart</button>
+          </div>
+          `
+          cardContainer.appendChild(card);
+        })
+      }
+      catch (error) {
+        console.error(error)
+      }
+    }
   } catch (error) {
     console.error(error);
   }
@@ -57,7 +86,7 @@ async function loadCards() {
       </div>
       `
       cardContainer.appendChild(card);
-      
+
     })
   }
   catch (error) {
