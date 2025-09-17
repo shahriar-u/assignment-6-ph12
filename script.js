@@ -52,6 +52,14 @@ async function loadCategory() {
           </div>
           `
           cardContainer.appendChild(card);
+
+        // event listener for cart functionality
+          card.querySelector("button").addEventListener("click", () => {
+            addToCart({
+              name: element.name,
+              price: element.price
+            });
+          });
         })
       }
       catch (error) {
@@ -86,7 +94,13 @@ async function loadCards() {
       </div>
       `
       cardContainer.appendChild(card);
-
+      // event listener for cart functionality
+      card.querySelector("button").addEventListener("click", () => {
+        addToCart({
+          name: element.name,
+          price: element.price
+        });
+      });
     })
   }
   catch (error) {
@@ -95,3 +109,51 @@ async function loadCards() {
 }
 
 loadCards()
+
+
+// cart functionality 
+
+
+let cart = []; // to keep data in cart
+
+function addToCart(tree) {
+  cart.push(tree); 
+  renderCart();
+}
+
+function removeFromCart(index) {
+  cart.splice(index, 1); 
+  renderCart();
+}
+
+function renderCart() {
+  const cartList = document.getElementById('cart-list');
+  const cartTotal = document.getElementById('cart-total');
+
+  cartList.innerHTML = ""; 
+
+  let total = 0;
+
+  cart.forEach((item, index) => {
+    total += item.price;
+
+    const li = document.createElement('li');
+    li.classList.add("flex", "justify-between", "items-center", "bg-white", "p-2", "rounded-md", "text-sm");
+
+    li.innerHTML = `
+      <div class="flex flex-col">
+        <h1 class="font-bold">${item.name}</h1>
+        <p>${item.price}</p>
+      </div>
+      <button class="hover:cursor-pointer text-red-600 font-bold">❌</button>
+    `;
+
+    li.querySelector("button").addEventListener("click", () => {
+      removeFromCart(index);
+    });
+
+    cartList.appendChild(li);
+  });
+
+  cartTotal.textContent = total;
+}
