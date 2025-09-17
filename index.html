@@ -27,7 +27,7 @@
     <header>
         <!-- navbar -->
         <nav class="bg-[#15803D] py-4">
-            <div class="flex justify-between items-center max-w-[1140px] mx-auto text-white">
+            <div class="flex flex-col justify-center items-center space-y-3 lg:space-y-0 lg:flex-row lg:justify-between lg:items-center max-w-[1140px] mx-auto text-white">
                 <h1 class="text-2xl font-bold">Green Earth</h1>
                 <ul class="flex gap-4">
                     <li><a href="">About</a></li>
@@ -41,7 +41,7 @@
         <!-- hero section  -->
         <section class="bg-[#CFF0DC]">
             <div class="flex justify-between items-center max-w-[1440px] mx-auto">
-                <img class="h-[250px]" src="./assets/hero-leaf1.png" alt="">
+                <img class="h-[250px] lg:block hidden" src="./assets/hero-leaf1.png" alt="">
                 <div class="text-center  space-y-2">
                     <h1 class="text-4xl font-bold">Plant a Tree, Grow a Future</h1>
                     <p class="text-[#425158]">Join our mission to plant 1 million trees and make the Earth greener for
@@ -49,20 +49,20 @@
                         generations.</p>
                     <button class="btn btn-warning rounded-3xl text-[#15803D]">Get Involved</button>
                 </div>
-                <img class="h-[250px]" src="./assets/hero-leaf2.png" alt="">
+                <img class="h-[250px] lg:block hidden" src="./assets/hero-leaf2.png" alt="">
             </div>
         </section>
     </header>
 
 
-    <main class="bg-[#F0FDF4] py-10">
+    <main class="bg-[#F0FDF4] p-10">
         <div>
             <!-- choose your tree section -->
             <h1 class="text-center font-bold text-3xl mb-6">Choose Your Trees</h1>
-            <div class="flex gap-4 max-w-[1140px] mx-auto ">
+            <div class="flex flex-col lg:flex-row gap-4 max-w-[1140px] mx-auto ">
                 <div class="w-[450px] space-y-3">
                     <h1 class="font-bold">Categories</h1>
-                    <ul id="category-container" class="w-[200px]">
+                    <ul id="category-container" class="w-full lg:w-[200px]">
                         <!-- Static style to make dynamic styling easy -->
                         <!-- 
                         <li>All Trees</li>
@@ -74,7 +74,7 @@
                     </ul>
                 </div>
                 <!-- card -->
-                <div id="card-container" class="grid grid-cols-3 gap-2">
+                <div id="card-container" class="grid grid-cols-1 lg:grid-cols-3 gap-2">
                     <!-- Static style to make dynamic styling easy -->
                     <!-- 
                     <div class="bg-white p-3 rounded-xl">
@@ -93,7 +93,7 @@
 
                 <!-- cart area -->
                 <div>
-                    <div class="w-[200px]">
+                    <div class="w-full lg:w-[200px]">
                         <h1 class="font-bold">Your Cart</h1>
                         <ul id="cart-list" class="space-y-2 mt-2"></ul>
                         <p class="font-bold mt-4">Total: ৳ <span id="cart-total">0</span></p>
@@ -106,7 +106,7 @@
         <!-- about the campaign section -->
         <div>
             <h1 class="text-center font-bold text-3xl mt-20 mb-7">About the Campaign</h1>
-            <div class="flex gap-8 max-w-[900px] mx-auto justify-center items-center">
+            <div class="flex flex-col lg:flex-row gap-8 max-w-[900px] mx-auto justify-center items-center">
                 <img class="w-[350px]" src="./assets/about.png" alt="">
                 <div>
                     <p class="text-sm text-[#425158] mb-5">Green Earth is a global tree plantation initiative
@@ -128,7 +128,7 @@
     <!-- impact section -->
     <section class="bg-[#CFF0DC] mx-auto">
         <h1 class="text-center font-bold text-3xl pt-20 mb-7">Our Impact</h1>
-        <div class="flex max-w-[1140px] mx-auto justify-between gap-5 pb-20">
+        <div class="flex flex-col lg:flex-row max-w-[1140px] mx-auto lg:justify-between justify-center items-center gap-5 pb-20">
             <div class="bg-white rounded-2xl flex flex-col justify-center items-center w-full max-w-[370px] py-8">
                 <h1 class="text-[#15803D] text-3xl font-bold">500K+</h1>
                 <p>Trees Planted</p>
