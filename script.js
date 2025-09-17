@@ -16,7 +16,20 @@ async function loadCategory() {
           `;
       categoryContainer.appendChild(category);
     });
-    } catch (error) {
+    // active click 
+
+
+    const categoryItems = document.querySelectorAll('.category-item');
+    categoryItems.forEach(item => {
+      item.addEventListener('click', (e) => {
+
+        categoryItems.forEach(i => i.classList.remove('bg-[#15803D]', 'text-white'));
+
+        item.classList.add('bg-[#15803D]', 'text-white', 'rounded-lg');
+        loadCardsByCategory(e.target.id)
+      });
+    });
+  } catch (error) {
     console.error(error);
   }
 }
